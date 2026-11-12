@@ -1,0 +1,14 @@
+{
+  "name": "naadkatha-studio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 execute naadkatha-studio --local --file=schema.sql",
+    "db:remote": "wrangler d1 execute naadkatha-studio --remote --file=schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.161.0"
+  },
+  "private": true
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Naad Katha Studio</title>
+  <meta name="theme-color" content="#0d1030">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#/"><span class="mark">NAADKATHA</span><span class="sub">Studio</span></a>
+    <select id="channel" aria-label="Channel" hidden></select>
+  </header>
+  <nav class="tabs" id="tabs">
+    <a href="#/" data-tab="plan">Plan</a>
+    <a href="#/review" data-tab="review">Review <span class="count" id="review-count" hidden></span></a>
+    <a href="#/team" data-tab="team">Team</a>
+  </nav>
+  <main id="app" aria-live="polite"><p class="muted pad">Loading…</p></main>
+  <div id="toast" role="status" hidden></div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

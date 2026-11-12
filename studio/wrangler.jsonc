@@ -1,0 +1,25 @@
+{
+  // Naad Katha Studio. See README.md for the one-time setup.
+  "name": "naadkatha-studio",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "naadkatha-studio", "database_id": "REPLACE_WITH_D1_ID" }
+  ],
+  "r2_buckets": [
+    { "binding": "MEDIA", "bucket_name": "naadkatha-studio-media" }
+  ],
+  "vars": {
+    "ENVIRONMENT": "production",
+    "DEFAULT_CHANNEL_ID": "naad-katha",
+    "DEFAULT_CHANNEL_NAME": "Naad Katha",
+    "OWNER_NAME": "Owner",
+    // Fill these two after creating the Access application (README step 4):
+    "ACCESS_TEAM_DOMAIN": "REPLACE.cloudflareaccess.com",
+    "ACCESS_AUD": "REPLACE_WITH_ACCESS_AUD"
+  }
+  // Secrets (set with `npx wrangler secret put NAME`, never committed):
+  //   OWNER_EMAIL  the owner's Google email
+  //   SYNC_TOKEN   long random string shared with the sync job
+}
