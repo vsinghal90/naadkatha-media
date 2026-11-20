@@ -1,0 +1,233 @@
+<title>Arjun Dramatic Preview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap">
+<style>
+/* Layout: 9:16 stage left (WebGL depth camera + particles), camera/music turn map + line list right; stacks on phones. Single dark screening-room look by choice. */
+:root{--bg:#110e1b;--panel:#1b1728;--line:#332c47;--ink:#efe9dc;--muted:#a59db6;--gold:#e6b956;--ember:#d9663b;--calm:#6fb7a8;
+--f-hi:"Tiro Devanagari Hindi","Noto Serif Devanagari",Georgia,serif;--f-brand:"Cinzel","Times New Roman",serif;--f-ui:"Inter",system-ui,sans-serif;color-scheme:dark}
+[hidden]{display:none!important}
+body.rec{margin:0;background:#000}.rec .wrap{display:block;max-width:none;padding:0}.rec .side,.rec .bar,.rec .ctl,.rec .big{display:none!important}.rec .stage{width:1080px;height:1920px;border:0;border-radius:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:760px){.wrap{grid-template-columns:minmax(0,1fr)}}
+h1{font-family:var(--f-brand);font-size:21px;margin:0 0 2px;letter-spacing:.06em;color:var(--gold);text-wrap:balance}
+.sub{color:var(--muted);margin:0;font-size:14px}
+.stage{container-type:inline-size;position:relative;aspect-ratio:9/16;width:100%;max-width:100%;background:#000;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+#gl,#pt{position:absolute;inset:0;width:100%;height:100%;display:block}
+#gl{z-index:1}
+#pt{z-index:3;pointer-events:none}
+.flatimg{position:absolute;inset:0;z-index:1;background-size:cover;background-position:center;display:none}
+.glow{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;opacity:0;background:radial-gradient(ellipse 62% 42% at 52% 36%,rgba(255,214,140,.6),rgba(255,190,100,0) 70%)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.55));z-index:5;pointer-events:none}
+.grad{position:absolute;left:0;right:0;top:50%;height:32%;z-index:6;background:linear-gradient(to bottom,transparent,rgba(0,0,0,.6) 55%,transparent);pointer-events:none;opacity:0}
+.nocap .grad,.nocap .cap{display:none}
+.cap{position:absolute;z-index:10;left:5.6%;right:21.3%;bottom:26%;text-align:left;font-family:Georgia,var(--f-hi);color:#fff;font-size:5.2cqw;line-height:1.38;text-shadow:0 1px 5px rgba(0,0,0,.95);opacity:0}.cap i{font-style:normal;color:var(--gold)}.cap .sm{display:block;font-size:.7em;color:#f2e6c8}
+.cap .who{display:block;font:600 .55em var(--f-ui);color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.cap.char{color:#ffe7b0}.cap.hi{font-family:var(--f-hi);font-size:5.6cqw;line-height:1.45}
+.src{position:absolute;z-index:10;top:12.6%;left:5.6%;right:20%;font:4cqw Georgia,serif;color:#f2d58a;text-shadow:0 1px 4px #000;opacity:0}
+.logo{position:absolute;z-index:11;right:5.6%;top:12.6%;width:10%;opacity:.75}
+.big{position:absolute;inset:0;z-index:12;display:grid;place-items:center;background:rgba(0,0,0,.35);border:0;color:#fff;cursor:pointer;font:600 16px var(--f-ui)}
+.big span{background:var(--gold);color:#1a1300;border-radius:999px;padding:12px 22px}
+.big[disabled] span{background:var(--panel);color:var(--muted)}
+.bar{height:4px;background:var(--line);border-radius:2px;margin-top:10px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--gold)}
+.ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.ctl button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer;font:600 13px var(--f-ui)}
+.ctl button.hot{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.side{min-width:0;display:flex;flex-direction:column;gap:20px}
+.grp h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 8px;font-weight:600}
+.turns{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.turns li{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:13px;display:grid;grid-template-columns:52px minmax(0,1fr);gap:8px;cursor:pointer}
+.turns li b{display:block;color:var(--ink);font-weight:600}.turns li span{color:var(--muted)}
+.turns .t{color:var(--gold);font-variant-numeric:tabular-nums}
+.turns li.p2 .t{color:var(--calm)}
+.turns li.on{border-color:var(--gold)}
+.lines{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;max-height:420px;overflow:auto}
+.lines li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;padding:6px 8px;border-radius:6px;cursor:pointer;font-size:14px}
+.lines li .t{color:var(--muted);font-variant-numeric:tabular-nums;font-size:12px;padding-top:3px}
+.lines li .x{font-family:var(--f-hi)}.lines li .w{color:var(--gold);font:12px var(--f-ui)}
+.lines li.on{background:var(--panel)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--muted)}
+</style>
+<div class="wrap">
+  <div>
+    <div class="stage" id="stage">
+      <canvas id="gl"></canvas><div class="flatimg" id="flatimg"></div>
+      <div class="glow" id="glow"></div><canvas id="pt"></canvas>
+      <div class="vig"></div><div class="grad" id="grad"></div>
+      <div class="src" id="src">भगवद्गीता 2.14</div>
+      <div class="cap" id="cap"></div>
+      <img class="logo" src="a/logo.png" alt="">
+      <button class="big" id="big" type="button" disabled><span id="bigt">Loading pictures…</span></button>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+    <div class="ctl"><button id="pp" type="button">Play</button><button id="rs" type="button">Restart</button><button id="mo" type="button" class="hot">Motion: 3D camera</button><button id="cc" type="button">Captions: key lines</button><button id="sc" type="button">Script: हिंदी</button><span id="tm">0:00</span></div>
+  </div>
+  <div class="side">
+    <div><h1>NAAD KATHA · PREVIEW</h1><p class="sub">Preview with 3D camera moves made from our own pictures: a depth map of each painting lets the camera fly, push and orbit through it. Tap "Motion" to compare with a flat zoom. The mp4 is made only after your OK.</p></div>
+    <div class="grp"><h2>How the camera and music follow the story (tap to jump)</h2>
+      <ol class="turns" id="turns">
+        <li data-k="d01"><span class="t">0:00</span><div><b>Hook: trembling hands</b><span>slow push-in; only the hands and bow shake while "kaanp rahe the" is said</span></div></li>
+        <li data-k="d02"><span class="t">0:08</span><div><b>Kurukshetra fly-over</b><span>drone-style flight over the armies, wind-blown dust and embers, the frame jolts on each war-drum hit</span></div></li>
+        <li data-k="d03"><span class="t">0:18</span><div><b>Arjun breaks down</b><span>colour drains, ash drifts down, the camera closes in on his face; he trembles while he speaks</span></div></li>
+        <li data-k="d06"><span class="t">0:35</span><div><b>He puts the bow down</b><span>"vertigo" move: the bow holds still while the world behind it swells</span></div></li>
+        <li data-k="chant"><span class="t">0:43</span><div><b>Krishna speaks the shlok</b><span>slow orbit around Krishna, golden light motes, warm glow; music near-silent</span></div></li>
+        <li data-k="d07"><span class="t">1:03</span><div><b>"Iska seedha arth hai"</b><span>hard cut to a close-up of Krishna's face from the same painting</span></div></li>
+        <li data-k="d09" class="p2"><span class="t">1:18</span><div><b>Your ghabrahat, the Aha, the tip</b><span>gentle drift, soft bokeh, no shake</span></div></li>
+      </ol></div>
+    <div class="note">All of this runs on the existing approved pictures, so faces never change and it costs nothing. The final mp4 would be recorded from this same page, so what you see here is what posts.</div>
+    <div class="grp"><h2>Lines (tap to jump)</h2><ol class="lines" id="lines"></ol></div>
+  </div>
+</div>
+<script>
+const REC=location.search.includes('rec');if(REC)document.body.classList.add('rec');
+const TL=__TL__;
+const L={};TL.lines.forEach(l=>L[l.k]=l);
+const SHOTS=[
+ {from:'d01',img:'hands',mv:'hook',trem:['d01']},
+ {from:'d02',img:'armies',mv:'drone'},
+ {from:'d03',img:'arjun',mv:'fear',trem:['d04','d05']},
+ {from:'d06',img:'bow',mv:'vertigo'},
+ {from:'chant',img:'krishna',mv:'orbit'},
+ {from:'d07',img:'krishna',mv:'close',cut:true},
+ {from:'d09',img:'modern',mv:'soft'},
+ {from:'d10',img:'master',mv:'glow'},
+ {from:'d11',img:'modern',mv:'soft2'},
+ {from:'d12',img:'hands',mv:'end'}];
+SHOTS.forEach((s,i)=>{s.t0=i===0?0:L[s.from].s-0.15});
+SHOTS.forEach((s,i)=>{s.t1=i<SHOTS.length-1?SHOTS[i+1].t0:TL.total});
+const HITS=[]; /* camera jolts: only on a hit the viewer clearly hears (owner 20 Nov 2026); empty by default */
+const GRADE={hook:[1.05,1,1.05],drone:[1.12,1,1.1],fear:[.76,.92,1.06],vertigo:[.7,.9,1.07],orbit:[1.06,1.04,1],close:[1.06,1.05,1],glow:[1.05,1.04,1],soft:[1,1,1],soft2:[1,1,1],end:[1,1,1.04]};
+const PT={hook:[['dust',48]],drone:[['wind',70],['ember',24]],fear:[['ash',32],['dust',10]],vertigo:[['ash',28]],orbit:[['gold',42]],close:[['gold',26]],soft:[['bokeh',7]],glow:[['gold',18]],soft2:[['bokeh',7]],end:[['dust',28]]};
+const KEY=['d01','chant','d10','d13'];
+let mode='key',hindi=true,flat=false,playing=false,raf=0,curLine=-1,curGrade='';
+const au=new Audio('a/arjun_dramatic_v4.mp3');au.preload='auto';
+const $=id=>document.getElementById(id);
+const fmt=t=>{t=Math.max(0,t);return Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0')};
+const lerp=(a,b,u)=>a+(b-a)*u;
+function shotAt(t){let i=0;for(let j=0;j<SHOTS.length;j++)if(t>=SHOTS[j].t0)i=j;return i}
+
+/* ---------- camera ---------- */
+function cam(s,t){
+  const u=Math.min(1,Math.max(0,(t-s.t0)/(s.t1-s.t0))),e=0.5-0.5*Math.cos(Math.PI*u);let c;
+  switch(s.mv){
+    /* v4 moves (14 Nov): the depth term k now CHANGES during each shot, so near things grow or slide against the background (real 3D), not a flat zoom */
+    case'hook':c={cx:lerp(.55,.58,e),cy:lerp(.56,.52,e),z:lerp(1.04,1.1,e),k:lerp(.02,.38,e),f:.12,ox:lerp(-.008,.008,e),oy:0};break;
+    case'drone':c={cx:.5,cy:lerp(.6,.5,e),z:lerp(1.04,1.16,e),k:lerp(.05,.5,e),f:.15,ox:.006*Math.sin(u*Math.PI),oy:lerp(.012,-.012,e)};break;
+    case'fear':c={cx:.5,cy:lerp(.46,.38,e),z:lerp(1.05,1.12,e),k:lerp(.02,.32,e),f:.2,ox:lerp(-.01,.01,e),oy:0};break;
+    case'vertigo':c={cx:.5,cy:.56,z:1.22,k:lerp(0,-.45,e),f:.7,ox:0,oy:0};break;
+    case'orbit':c={cx:.52,cy:.5,z:lerp(1.1,1.16,e),k:.18,f:.3,ox:.022*Math.sin(2*Math.PI*u*.6),oy:.008*Math.cos(2*Math.PI*u*.6)};break;
+    case'close':c={cx:.52,cy:lerp(.42,.4,e),z:lerp(1.42,1.5,e),k:lerp(.05,.3,e),f:.2,ox:lerp(-.006,.006,e),oy:0};break;
+    case'soft':c={cx:.48,cy:.42,z:lerp(1.05,1.1,e),k:lerp(.02,.35,e),f:.15,ox:lerp(-.006,.006,e),oy:0};break;
+    case'glow':c={cx:.6,cy:.45,z:lerp(1.1,1.16,e),k:lerp(.05,.3,e),f:.25,ox:lerp(.006,-.006,e),oy:0};break;
+    case'soft2':c={cx:.48,cy:.45,z:lerp(1.12,1.05,e),k:lerp(.35,.05,e),f:.15,ox:lerp(.006,-.006,e),oy:0};break;
+    default:c={cx:.55,cy:.52,z:lerp(1.12,1.04,e),k:lerp(.3,0,e),f:.12,ox:lerp(.008,-.004,e),oy:0};
+  }
+  c.tx=0;c.ty=0;
+  if(flat){c.k=0;c.ox=0;c.oy=0;c.z=lerp(1.0,1.09,u);c.cx=.5;c.cy=.5;}
+  else{
+    let sh=0;for(const h of HITS){const d=t-h;if(d>=0&&d<.6)sh+=Math.exp(-d/.12)}
+    if(sh){c.z*=1+.012*sh;c.cx+=.004*sh*Math.sin(t*90);c.cy+=.004*sh*Math.cos(t*77)}
+    let tr=0;for(const k of s.trem||[]){const l=L[k];if(t>=l.s-.1&&t<=l.e+.3)tr=1}
+    c.tx=tr*.0026*(Math.sin(t*2*Math.PI*6.3)+.5*Math.sin(t*2*Math.PI*11.7));c.ty=tr*.0018*Math.cos(t*2*Math.PI*7.9);
+  }
+  const lo=Math.min(c.z*(1-c.k*c.f),c.z*(1+c.k*(1-c.f))),need=1.02+2*(Math.abs(c.ox)+Math.abs(c.oy));
+  if(lo<need)c.z*=need/lo;
+  const s2=Math.min(c.z*(1-c.k*c.f),c.z*(1+c.k*(1-c.f))),mx=.5/s2+Math.abs(c.ox)+.004,my=.5/s2+Math.abs(c.oy)+.004;
+  c.cx=Math.min(1-mx,Math.max(mx,c.cx));c.cy=Math.min(1-my,Math.max(my,c.cy));
+  return c;
+}
+
+/* ---------- WebGL depth renderer ---------- */
+const cv=$('gl');const gl=cv.getContext('webgl',{premultipliedAlpha:false,preserveDrawingBuffer:true,antialias:false});
+let prog,U={},TEX={},ready=false;
+function sh(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s}
+if(gl){
+  prog=gl.createProgram();
+  gl.attachShader(prog,sh(gl.VERTEX_SHADER,'attribute vec2 p;varying vec2 q;void main(){q=vec2(p.x*.5+.5,.5-p.y*.5);gl_Position=vec4(p,0.,1.);}'));
+  gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,`precision highp float;varying vec2 q;uniform sampler2D img,dep;uniform vec2 c,o,tr;uniform float z,k,f,a;uniform vec3 g;
+  vec2 P(float D){float s=z*(1.+k*(D-f));return c+(q-.5)/s+o*(D-f)+tr*smoothstep(.55,.85,D);}
+  void main(){
+    /* v5 (14 Nov): march from the nearest depth to the farthest and stop at the FIRST surface hit, so the front of the picture always wins (no second faces) */
+    float D=1.,pD=1.;vec2 p=P(1.);bool hit=false;
+    for(int i=0;i<=32;i++){D=1.-float(i)/32.;p=P(D);if(texture2D(dep,clamp(p,0.,1.)).r>=D){hit=true;break;}pD=D;}
+    if(hit){float lo=D,hi=pD;for(int j=0;j<6;j++){float m=.5*(lo+hi);if(texture2D(dep,clamp(P(m),0.,1.)).r>=m)lo=m;else hi=m;}p=P(lo);}
+  vec3 col=texture2D(img,clamp(p,.0005,.9995)).rgb;col=(col-.5)*g.z+.5;col*=g.y;col=mix(vec3(dot(col,vec3(.299,.587,.114))),col,g.x);gl_FragColor=vec4(clamp(col,0.,1.),a);}`));
+  gl.linkProgram(prog);gl.useProgram(prog);
+  const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  const loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  ['img','dep','c','o','tr','z','k','f','a','g'].forEach(n=>U[n]=gl.getUniformLocation(prog,n));
+  gl.uniform1i(U.img,0);gl.uniform1i(U.dep,1);gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+}
+function loadImg(src){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=src})}
+function tex(img){const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);
+  [gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T].forEach(p=>gl.texParameteri(gl.TEXTURE_2D,p,gl.CLAMP_TO_EDGE));
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);return t}
+const NAMES=[...new Set(SHOTS.map(s=>s.img))];
+const loading=Promise.all(NAMES.map(async n=>{const[i,d]=await Promise.all([loadImg('a/'+n+'_hd.jpg'),loadImg('a/'+n+'_d.jpg')]);if(gl)TEX[n]={i:tex(i),d:tex(d)};else TEX[n]={src:'a/'+n+'_hd.jpg'}}));
+function size(){const r=$('stage').getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
+  const w=Math.round(r.width*dpr),h=Math.round(r.height*dpr);for(const c of[cv,$('pt')]){if(c.width!==w||c.height!==h){c.width=w;c.height=h}}if(gl)gl.viewport(0,0,w,h)}
+function drawShot(s,t,a){const c=cam(s,t),T=TEX[s.img];
+  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,T.i);gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,T.d);
+  gl.uniform2f(U.c,c.cx,c.cy);gl.uniform2f(U.o,c.ox,c.oy);gl.uniform2f(U.tr,c.tx,c.ty);gl.uniform1f(U.z,c.z);gl.uniform1f(U.k,c.k);gl.uniform1f(U.f,c.f);gl.uniform1f(U.a,a);const G=flat?[1,1,1]:GRADE[s.mv];gl.uniform3f(U.g,G[0],G[1],G[2]);
+  gl.drawArrays(gl.TRIANGLE_STRIP,0,4)}
+
+/* ---------- particles (deterministic: position is a function of time) ---------- */
+function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+SHOTS.forEach((s,si)=>{const r=rng(1000+si*77);s.parts=[];for(const[ty,n]of PT[s.mv]||[])for(let i=0;i<n;i++)s.parts.push({ty,x:r(),y:r(),d:.2+.8*r(),ph:r()*6.28,v:r()})});
+const ptx=$('pt').getContext('2d');
+const fr=x=>x-Math.floor(x);
+function drawParts(s,t,a){const W=ptx.canvas.width,H=ptx.canvas.height,sc=W/1080,lt=t-s.t0;
+  for(const p of s.parts){let x,y,r,al,col;const d=p.d;
+    switch(p.ty){
+      case'dust':x=p.x+.012*d*lt+.01*Math.sin(p.ph+lt*.5);y=p.y-.006*d*lt;r=(2+4.2*d)*sc;al=.26+.4*d;col='255,228,180';break;
+      case'wind':x=p.x+(.05+.1*d)*lt;y=p.y+.01*Math.sin(p.ph+lt);r=(1.4+2.4*d)*sc;al=.18+.3*d;col='232,206,166';break;
+      case'ember':x=p.x+.015*Math.sin(p.ph+lt*1.3)+.012*lt;y=p.y-(.03+.045*d)*lt;r=(2.2+3.2*d)*sc;al=(.55+.4*Math.sin(lt*9+p.ph))*(.6+.4*d);col='255,140,60';break;
+      case'ash':x=p.x+.012*Math.sin(p.ph+lt*.7)+.004*lt;y=p.y+(.012+.022*d)*lt;r=(1.8+3.2*d)*sc;al=.3+.35*d;col='215,210,205';break;
+      case'gold':x=p.x+.009*Math.sin(p.ph+lt*.6);y=p.y-(.01+.022*d)*lt;r=(2.2+4.2*d)*sc;al=(.45+.5*d)*(.6+.4*Math.sin(lt*2+p.ph));col='255,214,120';break;
+      default:x=p.x+.004*Math.sin(p.ph+lt*.3);y=p.y-.003*lt;r=(22+40*d)*sc;al=.05+.04*d;col='255,230,190';
+    }
+    x=fr(x)*W;y=fr(y)*H;al*=a;if(al<=0)continue;
+    if(p.ty==='wind'){ptx.strokeStyle=`rgba(${col},${al})`;ptx.lineWidth=r;ptx.beginPath();ptx.moveTo(x,y);ptx.lineTo(x-(24+60*d)*sc,y-3*sc);ptx.stroke();continue}
+    if(p.ty==='ember'||p.ty==='gold'){ptx.fillStyle=`rgba(${col},${al*.18})`;ptx.beginPath();ptx.arc(x,y,r*3.2,0,6.283);ptx.fill()}
+    ptx.fillStyle=`rgba(${col},${al})`;ptx.beginPath();ptx.arc(x,y,r,0,6.283);ptx.fill()}}
+
+/* ---------- frame ---------- */
+function frame(t){
+  size();const i=shotAt(t),s=SHOTS[i],fade=s.cut?.08:.6,a=i>0?Math.min(1,(t-s.t0)/fade):1;
+  if(gl){gl.clearColor(0,0,0,1);gl.clear(gl.COLOR_BUFFER_BIT);if(a<1)drawShot(SHOTS[i-1],t,1);drawShot(s,t,a)}
+  else{const fi=$('flatimg');fi.style.display='block';fi.style.backgroundImage=`url(${TEX[s.img]?.src||''})`}
+  ptx.clearRect(0,0,ptx.canvas.width,ptx.canvas.height);
+  if(!flat){ptx.globalCompositeOperation='lighter';if(a<1)drawParts(SHOTS[i-1],t,1-a);drawParts(s,t,a);ptx.globalCompositeOperation='source-over'}
+  $('glow').style.opacity=(!flat&&['orbit','close','glow'].includes(s.mv))?(.2+.08*Math.sin(t*1.3))*a:0;
+  captions(t);
+  document.querySelectorAll('#turns li').forEach(li=>{const l=L[li.dataset.k];li.classList.toggle('on',t>=l.s-.2)});
+  $('prog').style.width=(100*t/TL.total)+'%';$('tm').textContent=fmt(t)+' / '+fmt(TL.total);
+}
+const clamp01=x=>Math.min(1,Math.max(0,x));
+const fade=(t,a,b,d)=>Math.min(clamp01((t-a)/d),clamp01((b-t)/d));
+function captions(t,force){
+  let li=-1;TL.lines.forEach((l,i)=>{if(t>=l.s-.15&&t<=l.e+.65)li=i});
+  const show=li>=0&&(mode==='all'||(mode==='key'&&KEY.includes(TL.lines[li].k)));const key=show?li:-1;const c=$('cap');
+  if(key!==curLine||force){curLine=key;
+    if(show){const l=TL.lines[li];c.className='cap'+(l.char?' char':'')+(hindi?' hi':'');c.innerHTML=(l.char?`<span class="who">${hindi?l.who:l.whoE}</span>`:'')+(hindi?l.capH:l.cap)}else c.className='cap';
+    document.querySelectorAll('#lines li').forEach((x,i)=>x.classList.toggle('on',i===li))}
+  const op=show?fade(t,TL.lines[li].s-.15,TL.lines[li].e+.65,.25):0;c.style.opacity=op;$('grad').style.opacity=op;
+  const ch=L.chant;$('src').style.opacity=mode==='off'?0:.95*fade(t,ch.s-.2,ch.e+.5,.4);
+}
+$('lines').innerHTML=TL.lines.map((l,i)=>`<li data-i="${i}"><span class="t">${fmt(l.s)}</span><span class="x">${l.char?`<span class="w">${l.whoE}</span><br>`:''}${l.text}</span></li>`).join('');
+$('lines').querySelectorAll('li').forEach(li=>li.onclick=()=>jump(TL.lines[+li.dataset.i].s-.2));
+document.querySelectorAll('#turns li').forEach(li=>li.onclick=()=>jump(L[li.dataset.k].s-.4));
+function jump(t){au.currentTime=Math.max(0,t);if(ready){frame(au.currentTime);if(!playing)play()}}
+function tick(){frame(au.currentTime);if(au.ended){stop();return}raf=requestAnimationFrame(tick)}
+function play(){if(!ready)return;playing=true;$('big').hidden=true;$('pp').textContent='Pause';au.play();cancelAnimationFrame(raf);tick()}
+function stop(){playing=false;au.pause();$('pp').textContent='Play';cancelAnimationFrame(raf)}
+$('big').onclick=play;$('pp').onclick=()=>playing?stop():play();$('rs').onclick=()=>jump(0);
+$('mo').onclick=()=>{flat=!flat;$('mo').textContent='Motion: '+(flat?'old flat zoom':'3D camera');$('mo').classList.toggle('hot',!flat);if(ready)frame(au.currentTime)};
+$('cc').onclick=()=>{mode={key:'all',all:'off',off:'key'}[mode];$('stage').classList.toggle('nocap',mode==='off');$('cc').textContent='Captions: '+{key:'key lines',all:'every line',off:'off'}[mode];captions(au.currentTime,true)};
+$('sc').onclick=()=>{hindi=!hindi;$('sc').textContent='Script: '+(hindi?'हिंदी':'Hinglish');captions(au.currentTime,true)};
+window.addEventListener('resize',()=>{if(ready)frame(au.currentTime)});
+loading.then(()=>{ready=true;$('big').disabled=false;$('bigt').textContent='▶ Play with sound';frame(0)}).catch(()=>{$('bigt').textContent='Pictures did not load. Reload the page.'});
+/* used by the mp4 recorder: draw any moment without audio */
+window.__ready=()=>ready;window.__frame=t=>{frame(t);return true};window.__total=TL.total;
+</script>
