@@ -12,7 +12,7 @@ LOG = BASE / "sync.log"
 REPO = os.environ.get("NK_REPO", "naadkatha/air-inbox")
 WATCH = {
     "downloads": HOME / "Downloads",
-    "flow": HOME / "Desktop" / "Claude's Folder" / "NaadKatha",
+    "claudes-folder": HOME / "Desktop" / "Claude's Folder",   # includes NaadKatha/ and NaadKatha/Music/
 }
 EXT = {".mp4", ".mov", ".webm", ".png", ".jpg", ".jpeg", ".webp", ".wav", ".mp3", ".m4a"}
 ALWAYS_PREFIX = ("nk_",)          # our own files: sent even if older than install
@@ -47,7 +47,8 @@ def main():
         if not d.is_dir():
             continue
         try:
-            entries = list(d.iterdir())
+            entries = [q for q in d.rglob("*") if len(q.relative_to(d).parts) <= 3
+                       and not any(part.startswith(".") for part in q.relative_to(d).parts)]
         except PermissionError as e:
             log(f"no access to {d}: {e} (allow python3 in System Preferences > Security > Files and Folders)")
             continue
@@ -59,7 +60,8 @@ def main():
                 continue
             if st.st_mtime < since and not p.name.lower().startswith(ALWAYS_PREFIX):
                 continue
-            key = f"{src}/{p.name}|{st.st_size}|{int(st.st_mtime)}"
+            rel = p.relative_to(d).as_posix()
+            key = f"{src}/{rel}|{st.st_size}|{int(st.st_mtime)}"
             if key in done:
                 continue
             todo.append((src, p, st, key))
@@ -73,7 +75,7 @@ def main():
         state["repo_ok"] = True
     for src, p, st, key in todo:
         day = datetime.datetime.fromtimestamp(st.st_mtime).strftime("%Y-%m-%d")
-        dest = f"{day}/{src}/{p.name}"
+        dest = f"{day}/{src}/{p.relative_to(WATCH[src]).as_posix()}"
         try:
             api.upload_file(path_or_fileobj=str(p), path_in_repo=dest, repo_id=REPO,
                             repo_type="dataset", commit_message=f"air: {dest}")
