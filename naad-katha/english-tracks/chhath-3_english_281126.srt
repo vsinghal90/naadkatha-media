@@ -1,220 +1,252 @@
 1
-00:00:00,010 --> 00:00:02,224
-The world worships the rising sun...
+00:00:00,010 --> 00:00:02,336
+The world worships the rising sun.
 
 2
-00:00:02,224 --> 00:00:04,560
-...Chhath honours the setting one too.
+00:00:02,336 --> 00:00:05,004
+Chhath honors the setting sun too. Why?
 
 3
-00:00:04,940 --> 00:00:06,298
-Why? In the last story,
+00:00:05,004 --> 00:00:07,330
+Earlier, the sun fed Yudhishthira.
 
 4
-00:00:06,298 --> 00:00:08,305
-Surya gave food to Yudhishthira...
+00:00:07,440 --> 00:00:10,800
+But the setting sun's secret hides in two texts.
 
 5
-00:00:08,305 --> 00:00:11,846
-...but the secret of the setting sun is hidden in two texts.
+00:00:10,800 --> 00:00:12,340
+First clue: the Vedas.
 
 6
-00:00:11,846 --> 00:00:12,850
-The first clue...
+00:00:12,460 --> 00:00:14,533
+The Taittiriya Aranyaka says,
 
 7
-00:00:12,960 --> 00:00:13,731
-In the Vedas,
+00:00:14,533 --> 00:00:16,678
+every evening as the sun sets,
 
 8
-00:00:13,731 --> 00:00:17,469
-the Taitiriya Aranyaka says that every evening as the sun sets,
+00:00:16,678 --> 00:00:19,180
+Demons named Mandeh attack the sun.
 
 9
-00:00:17,469 --> 00:00:18,774
-Mandeha demons attack.
+00:00:20,180 --> 00:00:23,790
+Then sages chant the Gayatri and toss water toward the sun.
 
 10
-00:00:18,774 --> 00:00:20,910
-Sages chant Gayatri and offer water.
+00:00:23,790 --> 00:00:25,686
+That water turns into a weapon,
 
 11
-00:00:20,890 --> 00:00:24,316
-That water becomes a thunderbolt and demons flee.
+00:00:25,686 --> 00:00:26,910
+and the demons flee.
 
 12
-00:00:24,316 --> 00:00:26,972
-Meaning... Arghya is not just worship,
+00:00:27,410 --> 00:00:29,526
+Meaning arghya is not just prayer,
 
 13
-00:00:26,972 --> 00:00:28,860
-it protects the sun. But...
+00:00:29,526 --> 00:00:31,082
+it is defense of the sun.
 
 14
-00:00:28,980 --> 00:00:30,668
-The Vedas don't stop there.
+00:00:31,082 --> 00:00:33,135
+But the Veda does not stop there.
 
 15
-00:00:30,668 --> 00:00:35,980
-It says whoever meditates on both the rising and setting sun receives every blessing.
+00:00:33,135 --> 00:00:34,380
+It is written there:
 
 16
-00:00:36,820 --> 00:00:39,371
-That same sound echoed during another war.
+00:00:34,500 --> 00:00:39,446
+Whoever meditates on both the rising and setting sun attains all auspiciousness.
 
 17
-00:00:39,371 --> 00:00:41,496
-The second clue is in the Ramayana,
+00:00:39,446 --> 00:00:42,290
+And the same truth was heard again amid a war.
 
 18
-00:00:41,496 --> 00:00:43,500
-during the weary battle of Lanka.
+00:00:42,710 --> 00:00:45,608
+The second clue is in the Valmiki Ramayana...
 
 19
-00:00:43,610 --> 00:00:44,865
-...sunk in worry.
+00:00:45,608 --> 00:00:47,540
+The Lanka war... Ravana ahead.
 
 20
-00:00:44,865 --> 00:00:47,670
-Then Sage Agastya came... ...and said:
+00:00:47,650 --> 00:00:49,757
+And Rama, tired from fighting,
 
 21
-00:00:48,840 --> 00:00:49,612
-[Agastya] Ram,
+00:00:49,757 --> 00:00:51,232
+was drowned in worry.
 
 22
-00:00:49,612 --> 00:00:51,266
-listen to this Aditya Hridaya.
+00:00:51,232 --> 00:00:53,480
+Then Sage Agastya came and said:
 
 23
-00:00:51,266 --> 00:00:54,630
-Chanting it ensures victory and reveals Chhath's true secret.
+00:00:53,710 --> 00:00:54,586
+[Agastya] Rama,
 
 24
-00:00:54,350 --> 00:00:54,592
-[Sanskrit] Salutations to the mountain of the east,
+00:00:54,586 --> 00:00:56,337
+listen to this Aditya Hridaya.
 
 25
-00:00:54,592 --> 00:00:54,800
-and salutations to the mountain of the west.
+00:00:56,337 --> 00:00:57,329
+By chanting this,
 
 26
-00:00:55,190 --> 00:01:00,752
-Salutations to the rising sun on the eastern mountain and to the setting sun on the west.
+00:00:57,329 --> 00:00:59,430
+you will conquer every enemy in war.
 
 27
-00:01:00,752 --> 00:01:02,690
-Ram watched and chanted thrice.
+00:00:59,480 --> 00:01:00,230
+In that hymn,
 
 28
-00:01:03,020 --> 00:01:05,380
-and his worry vanished. Then,
+00:01:00,230 --> 00:01:03,520
+there is a verse that reveals the whole secret of Chhath:
 
 29
-00:01:05,380 --> 00:01:07,740
-in that same war, Ravan fell.
+00:01:03,780 --> 00:01:05,357
+[Sanskrit] Namah purvaya giraye,
 
 30
-00:01:09,710 --> 00:01:11,368
-You must have got the answer,
+00:01:05,357 --> 00:01:06,490
+pashchimayadraye namah.
 
 31
-00:01:11,368 --> 00:01:15,598
-both Vedas and Ramayana respect the setting sun as much as the rising one.
+00:01:06,480 --> 00:01:09,829
+Salutations to the rising sun on the eastern mountain,
 
 32
-00:01:15,598 --> 00:01:17,770
-The name Chhath is not in these texts,
+00:01:09,829 --> 00:01:12,000
+and to the setting sun on the west.
 
 33
-00:01:17,890 --> 00:01:21,793
-That is why Chhath honors both the setting and rising sun.
+00:01:12,120 --> 00:01:14,761
+Rama gazed at the sun, chanted thrice,
 
 34
-00:01:21,793 --> 00:01:23,139
-We salute good days,
+00:01:14,761 --> 00:01:17,610
+and his worry vanished. Then Ravana fell.
 
 35
-00:01:23,139 --> 00:01:25,360
-but what when they begin to fade?
+00:01:17,610 --> 00:01:19,070
+You have your answer.
 
 36
-00:01:25,470 --> 00:01:26,997
-then the mind turns away.
+00:01:19,270 --> 00:01:24,700
+Both the Vedas and the Ramayana give the setting sun as much reverence as the rising one.
 
 37
-00:01:26,997 --> 00:01:29,562
-Chhath does the exact opposite. In Chhath,
+00:01:26,110 --> 00:01:27,502
+Chhath isn't named here,
 
 38
-00:01:29,562 --> 00:01:32,433
-devotees first offer Arghya to the setting sun,
+00:01:27,502 --> 00:01:29,300
+but this tradition starts here.
 
 39
-00:01:32,433 --> 00:01:33,960
-then wait the whole night
+00:01:29,410 --> 00:01:33,778
+That is why Chhath offers arghya to both the setting and rising suns.
 
 40
-00:01:34,060 --> 00:01:36,418
-and in the morning to the rising sun.
+00:01:33,778 --> 00:01:36,120
+But the real message is what follows.
 
 41
-00:01:36,418 --> 00:01:37,884
-Meaning Chhath teaches,
+00:01:36,300 --> 00:01:38,170
+We all salute good days.
 
 42
-00:01:37,884 --> 00:01:39,924
-a declining day is not a defeat,
+00:01:39,830 --> 00:01:43,184
+But when the day starts to fade and things slip from our hands,
 
 43
-00:01:39,924 --> 00:01:41,900
-it is a promise of the morning.
+00:01:43,184 --> 00:01:44,249
+the mind turns away.
 
 44
-00:01:42,360 --> 00:01:44,308
-Therefore, bow to bad days too,
+00:01:44,249 --> 00:01:45,900
+Chhath does the exact opposite.
 
 45
-00:01:44,308 --> 00:01:46,130
-they lead you to the morning.
+00:01:46,020 --> 00:01:46,688
+In Chhath,
 
 46
-00:01:46,130 --> 00:01:47,450
-Try doing this today,
+00:01:46,688 --> 00:01:49,830
+devotees first offer arghya to the setting sun,
 
 47
-00:01:47,670 --> 00:01:50,064
-Pause as the sun sets and thank the day,
+00:01:50,140 --> 00:01:52,836
+Then wait through the night, and at dawn,
 
 48
-00:01:50,064 --> 00:01:51,021
-whatever it was.
+00:01:52,836 --> 00:01:54,020
+to the rising sun.
 
 49
-00:01:51,021 --> 00:01:53,295
-Because the world worships the rising,
+00:01:54,020 --> 00:01:55,730
+Meaning Chhath teaches us:
 
 50
-00:01:53,295 --> 00:01:55,390
-but morning comes from the setting.
+00:01:55,850 --> 00:01:57,778
+A fading day is not defeat,
 
 51
-00:01:55,850 --> 00:01:57,889
-Send this story to your loved ones,
+00:01:57,778 --> 00:01:59,564
+but a promise of morning.
 
 52
-00:01:57,889 --> 00:02:00,860
-maybe it will help someone in their declining days.
+00:01:59,564 --> 00:02:01,063
+Bow to your bad days.
 
 53
-00:02:00,860 --> 00:02:01,617
-Next story...
+00:02:01,063 --> 00:02:02,920
+They lead you to the dawn.
 
 54
-00:02:01,617 --> 00:02:04,180
-Arjun was trembling and Krishna was smiling.
+00:02:03,020 --> 00:02:05,924
+Try doing this today: This evening as the sun sets,
 
 55
-00:02:04,290 --> 00:02:04,760
-Why?
+00:02:05,924 --> 00:02:08,030
+pause for a minute and thank the day.
+
+56
+00:02:09,950 --> 00:02:11,044
+No matter the day.
+
+57
+00:02:11,044 --> 00:02:13,110
+The world worships the rising sun,
+
+58
+00:02:13,110 --> 00:02:15,480
+but morning comes from the setting one.
+
+59
+00:02:16,050 --> 00:02:18,180
+Share this story with your loved ones.
+
+60
+00:02:18,180 --> 00:02:20,814
+Maybe it will help someone whose day is fading.
+
+61
+00:02:20,814 --> 00:02:21,430
+Next story:
+
+62
+00:02:21,540 --> 00:02:22,926
+Arjuna was trembling,
+
+63
+00:02:22,926 --> 00:02:24,840
+and Krishna was smiling. Why?
 
